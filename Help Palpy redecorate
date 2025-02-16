@@ -1,0 +1,15 @@
+#!/bin/bash
+echo "I am Emperor Palpatine, what color should I have for carpet in my office?"
+echo "1 - Maul red"
+echo "2 - Vader black"
+echo "3 - Windu purple"
+echo "4 - Yoda green"
+echo "5 - Other"
+read color;
+case $color in
+	1) echo "Maul red is a great bold choice.";;
+	2) echo "Vader black might be too dark even for me.";;
+	3) echo "Windu purple is an interesting choice.";;
+	4) echo "Yoda green is disgusting and he'd be right where he deserves to be, under my feet all the time.";;
+	5) echo "All other colors are stupid.";;
+esac
