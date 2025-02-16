@@ -1,0 +1,6 @@
+#!/bin/bash
+echo "Howdy, I'm your Linux terminal.  What is your name, human?"
+read name
+echo "Nice to meet your stupid face $name.  How can I help you $name?"
+read response
+echo "Sorry, but Emperor Palpatine says I cannot $response for you. Good Bye."
