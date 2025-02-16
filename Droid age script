@@ -1,0 +1,14 @@
+Fun with age script
+
+
+#!/bin/bash
+echo "This is Droid Control, what is the name of the caller?"
+read response
+echo "Roger Roger $response, how old are you?"
+read age
+if [ "$age" -gt 40 ]
+then
+echo "Roger Roger, glad you called.  Good bye!"
+else
+echo "Roger Roger, we're blowing up your planet. Good bye."
+fi
