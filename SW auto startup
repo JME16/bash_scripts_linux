@@ -1,0 +1,25 @@
+Added this to .bashrc to start automatically when opening CLI....
+
+
+echo "A long time ago in a terminal far, far away..."
+sleep 2
+echo "Greetings, young Padawan. How feel you today? (Happy, Sad, Excited, or Ready for battle?)"
+read response
+
+case "$response" in
+  happy|Happy) 
+    echo "Good, good. The Force is strong with you today." 
+    ;;
+  sad|Sad) 
+    echo "Fear not. Even the darkest night will end, and the sun will rise." 
+    ;;
+  excited|Excited) 
+    echo "Impressive... most impressive. Adventure awaits you!" 
+    ;;
+  ready|Ready) 
+    echo "The Force will be with you. Always." 
+    ;;
+  *) 
+    echo "Hmm... mysterious, your feelings are. But trust in the Force, you must." 
+    ;;
+esac
