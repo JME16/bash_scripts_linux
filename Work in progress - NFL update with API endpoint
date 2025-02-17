@@ -1,0 +1,31 @@
+#!/bin/bash
+
+echo "What is your favorite NFL team?"
+read team
+
+# Fetch last game information
+echo "Fetching last game information..."
+last_game=$(curl -s "https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/$team/schedule" | jq '.events | map(select(.status.type.name == "STATUS_FINAL")) | .[-1]')
+if [ -z "$last_game" ]; then
+    echo "No information found for the last game."
+else
+    echo "Last game: $last_game"
+fi
+
+# Fetch next game information
+echo "Fetching next game information..."
+next_game=$(curl -s "https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/$team/schedule" | jq '.events | map(select(.status.type.name == "STATUS_SCHEDULED")) | .[0]')
+if [ -z "$next_game" ]; then
+    echo "No information found for the next game."
+else
+    echo "Next game: $next_game"
+fi
+
+# Fetch latest news
+echo "Fetching latest news..."
+latest_news=$(curl -s "https://site.api.espn.com/apis/site/v2/sports/football/nfl/news" | jq --arg team "$team" '.articles[] | select(.categories[].text | contains($team)) | .headline')
+if [ -z "$latest_news" ]; then
+    echo "No information found for the latest news."
+else
+    echo "Latest news: $latest_news"
+fi
