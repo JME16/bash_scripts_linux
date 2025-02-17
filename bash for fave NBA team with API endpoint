@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo "What is your favorite NBA team?"
+read team
+
+# Fetch last game information
+last_game=$(curl -s "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?team=$team&sort=desc&limit=1" | jq '.[0]')
+echo "Last game: ${last_game}"
+
+# Fetch next game information
+next_game=$(curl -s "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?team=$team&sort=asc&limit=1" | jq '.[0]')
+echo "Next game: ${next_game}"
+
+# Fetch latest news
+latest_news=$(curl -s "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/news?team=$team&sort=desc&limit=1" | jq '.[0]')
+echo "Latest news: ${latest_news}"
